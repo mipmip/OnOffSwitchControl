@@ -4,7 +4,7 @@
 
 ## About
 
-This is a fork of the original PRHOnOffButton project by Peter Hosey (boredzo). That project was awesome, but I wanted to make the switches more iOS-like, with different colors for the on/off states, as well as labels for each state. 
+This is a fork of OnOffSwitchControl by Dain Kaplan (dainkaplan) which itself is a fork of the original PRHOnOffButton project by Peter Hosey (boredzo). If you want IOS like switches in your OSX Cocoa App you'll not have a lot a choice. These guys have done great work, and I only made it work with ARC and removed the Carbon dependancy.
 
 ## Future plans
 

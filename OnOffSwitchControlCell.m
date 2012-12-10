@@ -1,6 +1,6 @@
 //
-//  PRHOnOffButtonCell.m
-//  PRHOnOffButton
+//  OnOffSwitchControlCell.m
+//  OnOffSwitchControl
 //
 //  Created by Peter Hosey on 2010-01-10.
 //  Copyright 2010 Peter Hosey. All rights reserved.
@@ -8,10 +8,11 @@
 //  Extended by Dain Kaplan on 2012-01-31.
 //  Copyright 2012 Dain Kaplan. All rights reserved.
 //
+//  Extended by Pim Snel on 2012-12-10.
+//  Copyright 2012 Pim Snel. All rights reserved.
+
 
 #import "OnOffSwitchControlCell.h"
-
-#include <Carbon/Carbon.h>
 
 // NOTE(dk): New defines for changing appearance
 #define USE_COLORED_GRADIENTS true
@@ -44,10 +45,7 @@
 
 #define DOWNWARD_ANGLE_IN_DEGREES_FOR_VIEW(view) ([view isFlipped] ? 90.0f : 270.0f)
 
-struct PRHOOBCStuffYouWouldNeedToIncludeCarbonHeadersFor {
-	EventTime clickTimeout;
-	HISize clickMaxDistance;
-};
+#define kEventDurationSecond            1.0
 
 @interface  OnOffSwitchControlCell() 
 
@@ -91,14 +89,9 @@ NSRect DKCenterRect(NSRect smallRect, NSRect bigRect)
 
 - (void) furtherInit {
 	[self setFocusRingType:[[self class] defaultFocusRingType]];
-	stuff = NSZoneMalloc([self zone], sizeof(struct PRHOOBCStuffYouWouldNeedToIncludeCarbonHeadersFor));
-	OSStatus err = HIMouseTrackingGetParameters(kMouseParamsSticky, &(stuff->clickTimeout), &(stuff->clickMaxDistance));
-	if (err != noErr) {
-		//Values returned by the above function call as of 10.6.3.
-		stuff->clickTimeout = ONE_THIRD * kEventDurationSecond;
-		stuff->clickMaxDistance = (HISize){ 6.0f, 6.0f };
-	}
-	// NOTE(dk): start additions 
+    clickTimeout = ONE_THIRD * kEventDurationSecond;
+    maxDist = NSMakeSize(6.0f, 6.0f);
+
 	self.showsOnOffLabels = YES;
 	self.onOffSwitchControlColors = OnOffSwitchControlBlueGreyColors;
 	self.onSwitchLabel = @"ON";
@@ -421,10 +414,10 @@ NSRect DKCenterRect(NSRect smallRect, NSRect bigRect)
 	NSControl *control = [controlView isKindOfClass:[NSControl class]] ? (NSControl *)controlView : nil;
 	if (control) {
 		CGFloat xFraction = trackingThumbCenterX / trackingCellFrame.size.width;
-
-		BOOL isClickNotDragByTime = (trackingTime - initialTrackingTime) < stuff->clickTimeout;
-		BOOL isClickNotDragBySpaceX = (stopPoint.x - initialTrackingPoint.x) < stuff->clickMaxDistance.width;
-		BOOL isClickNotDragBySpaceY = (stopPoint.y - initialTrackingPoint.y) < stuff->clickMaxDistance.height;
+        
+        BOOL isClickNotDragByTime = (trackingTime - initialTrackingTime) < clickTimeout;
+		BOOL isClickNotDragBySpaceX = (stopPoint.x - initialTrackingPoint.x) < maxDist.width;
+		BOOL isClickNotDragBySpaceY = (stopPoint.y - initialTrackingPoint.y) < maxDist.height;
 		BOOL isClickNotDrag = isClickNotDragByTime && isClickNotDragBySpaceX && isClickNotDragBySpaceY;
 
 		if (!isClickNotDrag) {

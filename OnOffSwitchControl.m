@@ -8,6 +8,9 @@
 //  Extended by Dain Kaplan on 2012-01-31.
 //  Copyright 2012 Dain Kaplan. All rights reserved.
 //
+//  Extended by Pim Snel on 2012-12-10.
+//  Copyright 2012 Pim Snel. All rights reserved.
+
 
 #import "OnOffSwitchControl.h"
 #import "OnOffSwitchControlCell.h"

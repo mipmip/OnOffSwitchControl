@@ -1,6 +1,6 @@
 //
-//  PRHOnOffButtonCell.h
-//  PRHOnOffButton
+//  OnOffSwitchControlCell.h
+//  OnOffSwitchControl
 //
 //  Created by Peter Hosey on 2010-01-10.
 //  Copyright 2010 Peter Hosey. All rights reserved.
@@ -8,6 +8,9 @@
 //  Extended by Dain Kaplan on 2012-01-31.
 //  Copyright 2012 Dain Kaplan. All rights reserved.
 //
+//  Extended by Pim Snel on 2012-12-10.
+//  Copyright 2012 Pim Snel. All rights reserved.
+
 
 #import <Cocoa/Cocoa.h>
 
@@ -34,6 +37,8 @@ NSRect DKCenterRect(NSRect smallRect, NSRect bigRect);
 	NSColor *customOffColor;
 	NSString *onSwitchLabel;
 	NSString *offSwitchLabel;
+    CGFloat clickTimeout;
+    NSSize maxDist;
 }
 
 @property (readwrite, copy) NSString *onSwitchLabel;
