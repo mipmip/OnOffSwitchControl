@@ -15,15 +15,9 @@
 #import <Cocoa/Cocoa.h>
 #import "OnOffSwitchControlCell.h"
 
-@interface OnOffSwitchControlAppDelegate : NSObject <NSApplicationDelegate> {
-    NSWindow *window;
-	NSCellStateValue onState, offState, mixedState;
-	OnOffSwitchControlCell *customColorsSwitch;
-	OnOffSwitchControlCell *redGreenColorsSwitch;
-	OnOffSwitchControlCell *featureToggleSwitch;
-}
-@property (assign) IBOutlet OnOffSwitchControlCell *featureToggleSwitch;
+@interface OnOffSwitchControlAppDelegate : NSObject <NSApplicationDelegate>
 
+@property (assign) IBOutlet OnOffSwitchControlCell *featureToggleSwitch;
 @property (assign) IBOutlet NSWindow *window;
 @property NSCellStateValue onState, offState, mixedState;
 @property (assign) IBOutlet OnOffSwitchControlCell *customColorsSwitch;

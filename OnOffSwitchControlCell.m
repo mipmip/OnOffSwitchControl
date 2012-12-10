@@ -241,8 +241,7 @@ NSRect DKCenterRect(NSRect smallRect, NSRect bigRect)
 																	 endingColor:offEndColor];
 		[leftBackground drawInRect:NSInsetRect(leftFrame, 1.0f, 1.0f) angle:DOWNWARD_ANGLE_IN_DEGREES_FOR_VIEW(controlView)];
 		[rightBackground drawInRect:NSInsetRect(rightFrame, 1.0f, 1.0f) angle:DOWNWARD_ANGLE_IN_DEGREES_FOR_VIEW(controlView)];
-		[leftBackground release];
-		[rightBackground release];
+
 	}
 	[context restoreGraphicsState];
 	
@@ -282,7 +281,7 @@ NSRect DKCenterRect(NSRect smallRect, NSRect bigRect)
 	
 	NSColor *startColor = [NSColor colorWithCalibratedWhite:BACKGROUND_GRADIENT_MAX_Y_WHITE alpha:1.0f];
 	NSColor *endColor = [NSColor colorWithCalibratedWhite:BACKGROUND_GRADIENT_MIN_Y_WHITE alpha:1.0f];
-	NSGradient *background = [[[NSGradient alloc] initWithStartingColor:startColor endingColor:endColor] autorelease];
+	NSGradient *background = [[NSGradient alloc] initWithStartingColor:startColor endingColor:endColor];
 	[background drawInBezierPath:borderPath angle:DOWNWARD_ANGLE_IN_DEGREES_FOR_VIEW(controlView)];
 
 	[context saveGraphicsState];
@@ -295,7 +294,7 @@ NSRect DKCenterRect(NSRect smallRect, NSRect bigRect)
 	}
 	// NOTE(dk): end additions
 	
-	NSGradient *backgroundShadow = [[[NSGradient alloc] initWithStartingColor:[NSColor colorWithCalibratedWhite:BACKGROUND_SHADOW_GRADIENT_WHITE alpha:BACKGROUND_SHADOW_GRADIENT_MAX_Y_ALPHA] endingColor:[NSColor colorWithCalibratedWhite:BACKGROUND_SHADOW_GRADIENT_WHITE alpha:BACKGROUND_SHADOW_GRADIENT_MIN_Y_ALPHA]] autorelease];
+	NSGradient *backgroundShadow = [[NSGradient alloc] initWithStartingColor:[NSColor colorWithCalibratedWhite:BACKGROUND_SHADOW_GRADIENT_WHITE alpha:BACKGROUND_SHADOW_GRADIENT_MAX_Y_ALPHA] endingColor:[NSColor colorWithCalibratedWhite:BACKGROUND_SHADOW_GRADIENT_WHITE alpha:BACKGROUND_SHADOW_GRADIENT_MIN_Y_ALPHA]];
 	NSRect backgroundShadowRect = cellFrame;
 	if (![controlView isFlipped])
 		backgroundShadowRect.origin.y += backgroundShadowRect.size.height - BACKGROUND_SHADOW_GRADIENT_HEIGHT;
@@ -349,7 +348,7 @@ NSRect DKCenterRect(NSRect smallRect, NSRect bigRect)
 	}
 
 	NSBezierPath *thumbPath = [NSBezierPath bezierPathWithRoundedRect:thumbFrame xRadius:THUMB_CORNER_RADIUS yRadius:THUMB_CORNER_RADIUS];
-	NSShadow *thumbShadow = [[[NSShadow alloc] init] autorelease];
+	NSShadow *thumbShadow = [[NSShadow alloc] init];
 	[thumbShadow setShadowColor:[NSColor colorWithCalibratedWhite:THUMB_SHADOW_WHITE alpha:THUMB_SHADOW_ALPHA]];
 	[thumbShadow setShadowBlurRadius:THUMB_SHADOW_BLUR];
 	[thumbShadow setShadowOffset:NSZeroSize];
@@ -358,7 +357,7 @@ NSRect DKCenterRect(NSRect smallRect, NSRect bigRect)
 	if ([self showsFirstResponder] && ([self focusRingType] != NSFocusRingTypeNone))
 		NSSetFocusRingStyle(NSFocusRingBelow);
 	[thumbPath fill];
-	NSGradient *thumbGradient = [[[NSGradient alloc] initWithStartingColor:[NSColor colorWithCalibratedWhite:THUMB_GRADIENT_MAX_Y_WHITE alpha:1.0f] endingColor:[NSColor colorWithCalibratedWhite:THUMB_GRADIENT_MIN_Y_WHITE alpha:1.0f]] autorelease];
+	NSGradient *thumbGradient = [[NSGradient alloc] initWithStartingColor:[NSColor colorWithCalibratedWhite:THUMB_GRADIENT_MAX_Y_WHITE alpha:1.0f] endingColor:[NSColor colorWithCalibratedWhite:THUMB_GRADIENT_MIN_Y_WHITE alpha:1.0f]];
 	[thumbGradient drawInBezierPath:thumbPath angle:DOWNWARD_ANGLE_IN_DEGREES_FOR_VIEW(controlView)];
 
 	[context restoreGraphicsState];
