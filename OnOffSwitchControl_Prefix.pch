@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'PRHOnOffButton' target in the 'PRHOnOffButton' project
+//
+
+#ifdef __OBJC__
+    #import <Cocoa/Cocoa.h>
+#endif
