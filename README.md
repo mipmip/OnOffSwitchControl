@@ -10,7 +10,7 @@ This is a fork of OnOffSwitchControl by Dain Kaplan (dainkaplan) which itself is
 
 ## Future plans
 
-Somethink like this 
+Something like this:
 
 ![image](http://picdrop.t3lab.com/HgUuLYznQj.png)
 
