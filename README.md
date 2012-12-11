@@ -8,6 +8,10 @@ This is a fork of OnOffSwitchControl by Dain Kaplan (dainkaplan) which itself is
 
 [Please check the 'original' project for more info](http://https://bitbucket.org/dainkaplan/cocoa-on-off-switch-control)
 
+## Future plans
+
+Somethink like this ![image](http://picdrop.t3lab.com/HgUuLYznQj.png)
+
 ## Usage
 
 You can create iOS-like switch toggles for your cocoa apps on OS X. There are a few built in settings for changing the appearance:
