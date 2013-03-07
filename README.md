@@ -6,7 +6,7 @@
 
 This is a fork of OnOffSwitchControl by Dain Kaplan (dainkaplan) which itself is a fork of the original PRHOnOffButton project by Peter Hosey (boredzo). If you want IOS like switches in your OSX Cocoa App you'll not have a lot a choice. These guys have done great work, and I only made it work with ARC and removed the Carbon dependancy.
 
-[Please check the 'original' project for more info](http://https://bitbucket.org/dainkaplan/cocoa-on-off-switch-control)
+[Please check the 'original' project for more info](https://bitbucket.org/dainkaplan/cocoa-on-off-switch-control)
 
 ## Future plans
 
