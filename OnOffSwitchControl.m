@@ -21,7 +21,11 @@
 	[self setCellClass:[OnOffSwitchControlCell class]];
 }
 - (void) awakeFromNib {
-	[[self class] setCellClass:[OnOffSwitchControlCell class]];
+    NSCell * oldCell = [self cell];
+
+    [self setCell:[[OnOffSwitchControlCell alloc] init]];
+    [self.cell setTarget:oldCell.target];
+    [self.cell setAction:oldCell.action];
 }
 
 - (void) keyDown:(NSEvent *)event {
