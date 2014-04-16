@@ -1,5 +1,7 @@
 # Cocoa On/Off Switch Control
 
+This project is not active anymore. Have a look at https://github.com/iluuu1994/ITSwitch
+
 ![image](http://picdrop.t3lab.com/nzy32vsd7r.png)
 
 ## About
