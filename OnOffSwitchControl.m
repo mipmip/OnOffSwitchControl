@@ -22,6 +22,9 @@
 }
 - (void) awakeFromNib {
     NSCell * oldCell = [self cell];
+    if([oldCell class] == [OnOffSwitchControlCell class]){
+        return;
+    }
 
     [self setCell:[[OnOffSwitchControlCell alloc] init]];
     [self.cell setTarget:oldCell.target];
